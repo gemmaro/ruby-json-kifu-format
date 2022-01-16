@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 scope(groups: %w[specs])
 
 directories %w[spec lib]

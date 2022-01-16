@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # KIF Converter

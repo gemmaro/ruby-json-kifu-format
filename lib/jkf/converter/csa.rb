@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # CSA v2.2 Converter
     class Csa < Base
-      VERSION = '2.2'.freeze
+      VERSION = '2.2'
 
       protected
 

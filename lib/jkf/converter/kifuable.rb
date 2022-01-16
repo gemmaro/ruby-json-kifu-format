@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # Intersection of KIF and KI2
