@@ -20,9 +20,10 @@ module Jkf::Parser
       @result = parse_root
 
       if success? && @current_pos == @input.size
-        return @result
+        @result
       else
-        fail(type: "end", description: "end of input") if failed? && @current_pos < input.size
+        fail(type: 'end', description: 'end of input') if failed? && @current_pos < input.size
+
         raise ParseError
       end
     end
@@ -33,7 +34,7 @@ module Jkf::Parser
       @result != :failed
     end
 
-    def failed?; !success?; end
+    def failed?() = !success?
 
     # match regexp
     def match_regexp(reg)
@@ -43,7 +44,7 @@ module Jkf::Parser
         @current_pos += ret.size
       else
         ret = :failed
-        fail(type: "class", value: reg.inspect, description: reg.inspect) if @silent_fails == 0
+        fail(type: 'class', value: reg.inspect, description: reg.inspect) if @silent_fails == 0
       end
       ret
     end
@@ -56,14 +57,14 @@ module Jkf::Parser
         @current_pos += str.size
       else
         ret = :failed
-        fail(type: "literal", value: str, description: "\"#{str}\"") if @slient_fails == 0
+        fail(type: 'literal', value: str, description: "\"#{str}\"") if @slient_fails == 0
       end
       ret
     end
 
     # match space
     def match_space
-      match_str(" ")
+      match_str(' ')
     end
 
     # match space one or more
