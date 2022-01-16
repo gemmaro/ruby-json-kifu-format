@@ -101,23 +101,6 @@ Naming/MethodParameterName:
     - 'lib/jkf/parser/kifuable.rb'
     - 'spec/spec_helper.rb'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: nested, compact
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'lib/jkf/converter/base.rb'
-    - 'lib/jkf/converter/csa.rb'
-    - 'lib/jkf/converter/ki2.rb'
-    - 'lib/jkf/converter/kif.rb'
-    - 'lib/jkf/converter/kifuable.rb'
-    - 'lib/jkf/parser/base.rb'
-    - 'lib/jkf/parser/csa.rb'
-    - 'lib/jkf/parser/ki2.rb'
-    - 'lib/jkf/parser/kif.rb'
-    - 'lib/jkf/parser/kifuable.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
