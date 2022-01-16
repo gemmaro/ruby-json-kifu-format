@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # KI2 Converter
@@ -13,7 +15,7 @@ module Jkf
         result = ''
         result += convert_header(jkf['header']) if jkf['header']
         result += convert_initial(jkf['initial']) if jkf['initial']
-        result += @header2.join + "\n"
+        result += "#{@header2.join}\n"
         result += convert_moves(jkf['moves']) if jkf['moves']
         unless @forks.empty?
           result += "\n"
@@ -78,7 +80,7 @@ module Jkf
       end
 
       def convert_special_and_split(hash, index)
-        "\n" + convert_special(hash['special'], index)
+        "\n#{convert_special(hash['special'], index)}"
       end
 
       def convert_move_and_split(move, num)

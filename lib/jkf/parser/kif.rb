@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Parser
     # KIF Parser
@@ -280,7 +282,7 @@ module Jkf
             s3 = match_str('成')
             s3 = nil if s3 == :failed
             @reported_pos = s0
-            s0 = { 'to' => s1, 'piece' => s2, 'promote' => !!s3 }
+            s0 = { 'to' => s1, 'piece' => s2, 'promote' => !s3.nil? }
           end
         end
         s0
@@ -485,7 +487,7 @@ module Jkf
               s0 = :failed
             else
               @reported_pos = s0
-              s0 = '&' + s2.join
+              s0 = "&#{s2.join}"
             end
           end
         end
@@ -515,7 +517,7 @@ module Jkf
                 s0 = :failed
               else
                 @reported_pos = s0
-                s0 = { 'te' => s3.join.to_i, 'moves' => s6[1..-1] }
+                s0 = { 'te' => s3.join.to_i, 'moves' => s6[1..] }
               end
             end
           else
@@ -599,7 +601,7 @@ module Jkf
         str.split(/[ 　]/).each do |kind|
           next if kind.empty?
 
-          ret[kind2csa(kind[0])] = kind.length == 1 ? 1 : kan2n2(kind[1..-1])
+          ret[kind2csa(kind[0])] = kind.length == 1 ? 1 : kan2n2(kind[1..])
         end
 
         ret
@@ -609,7 +611,7 @@ module Jkf
       def reverse_color(moves)
         moves.each do |move|
           move['move']['color'] = (move['move']['color'] + 1) % 2 if move['move'] && move['move']['color']
-          move['forks'].each { |_fork| reverse_color(_fork) } if move['forks']
+          move['forks']&.each { |_fork| reverse_color(_fork) }
         end
       end
     end

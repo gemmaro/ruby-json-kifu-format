@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # CSA v2.2 Converter
     class Csa < Base
-      VERSION = '2.2'.freeze
+      VERSION = '2.2'
 
       protected
 
@@ -16,8 +18,8 @@ module Jkf
 
       def convert_information(header)
         result = ''
-        result += 'N+' + (header.delete('先手') || header.delete('下手') || '') + "\n" if header['先手'] || header['下手']
-        result += 'N-' + (header.delete('後手') || header.delete('上手') || '') + "\n" if header['後手'] || header['上手']
+        result += "N+#{header.delete('先手') || header.delete('下手') || ''}\n" if header['先手'] || header['下手']
+        result += "N-#{header.delete('後手') || header.delete('上手') || ''}\n" if header['後手'] || header['上手']
         header.each { |(k, v)| result += "$#{csa_header_key(k)}:#{v}\n" }
         result
       end
@@ -35,7 +37,7 @@ module Jkf
           result += convert_hands(data['hands'], 0)
           result += convert_hands(data['hands'], 1)
         end
-        result += csa_color(data['color']) + "\n" if data['color']
+        result += "#{csa_color(data['color'])}\n" if data['color']
         result
       end
 
@@ -60,7 +62,7 @@ module Jkf
           result += convert_move(move['move'], before_pos) if move['move']
           result += convert_special(move['special'], move['color']) if move['special']
           if move['time']
-            result += ',' + convert_time(move['time'])
+            result += ",#{convert_time(move['time'])}"
           elsif move['move'] || move['special']
             result += "\n"
           end

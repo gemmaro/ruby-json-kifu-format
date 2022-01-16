@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # Intersection of KIF and KI2
@@ -44,7 +46,7 @@ module Jkf
           line += "|#{n2kan(y + 1)}\n"
           result += line
         end
-        result + "+---------------------------+\n"
+        "#{result}+---------------------------+\n"
       end
 
       def convert_comments(comments)
@@ -101,7 +103,7 @@ module Jkf
                     end
         end
 
-        result + "\n"
+        "#{result}\n"
       end
 
       def convert_piece_with_pos(move)
@@ -131,7 +133,7 @@ module Jkf
 
       def setup_players!(jkf)
         players_flag = :sengo
-        jkf['header'] && jkf['header'].keys.detect { |key| key =~ /[上下]手/ } && players_flag = :uwasimo
+        jkf['header']&.keys&.detect { |key| key =~ /[上下]手/ } && players_flag = :uwasimo
         @players = if players_flag == :uwasimo
                      %w[下 上]
                    else

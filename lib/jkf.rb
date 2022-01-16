@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'kconv'
 require 'jkf/version'
 require 'jkf/parser'

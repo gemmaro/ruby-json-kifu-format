@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jkf
   module Converter
     # KIF Converter
@@ -61,7 +63,7 @@ module Jkf
         result += convert_move(move['move'])
         result += convert_time(move['time']) if move['time']
         result += '+' if move['forks']
-        result + "\n"
+        "#{result}\n"
       end
 
       def convert_special_line(move, index)
