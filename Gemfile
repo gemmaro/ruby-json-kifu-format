@@ -13,7 +13,8 @@ group :development do
 end
 
 group :test do
-  gem "codeclimate-test-reporter", require: nil
-  gem "rspec", "~> 3.0", require: false
   gem "guard-rspec", require: false
+  gem "rspec", "~> 3.0", require: false
+  gem "simplecov", "~> 0.13.0",require: false
 end
+
