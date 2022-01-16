@@ -8,7 +8,7 @@ describe Jkf do
   end
 
   describe '.parse_file(filename, encoding)' do
-    subject { Jkf.parse_file(filename) }
+    subject { described_class.parse_file(filename) }
 
     context 'when .kif' do
       let(:filename) { fixtures(:kif).first }
@@ -42,7 +42,7 @@ describe Jkf do
   end
 
   describe '.parse(str)' do
-    subject { Jkf.parse(str) }
+    subject { described_class.parse(str) }
 
     context 'with kif str' do
       let(:str) { File.read(fixtures(:kif).first, encoding: 'Shift_JIS').toutf8 }

@@ -3,12 +3,12 @@
 require 'spec_helper'
 
 describe Jkf::Converter::Csa do
-  let(:csa_converter) { Jkf::Converter::Csa.new }
-  let(:csa_parser) { Jkf::Parser::Csa.new }
-
   subject { csa_parser.parse(csa_converter.convert(jkf)) }
 
-  shared_examples(:parse_file) do |filename|
+  let(:csa_converter) { described_class.new }
+  let(:csa_parser) { Jkf::Parser::Csa.new }
+
+  shared_examples('parse file') do |filename|
     let(:str) do
       if File.extname(filename) == '.csa'
         File.read(filename, encoding: 'Shift_JIS').toutf8
@@ -18,13 +18,13 @@ describe Jkf::Converter::Csa do
     end
     let(:jkf) { csa_parser.parse(str).to_json }
 
-    it "should be parse #{File.basename(filename)}" do
-      is_expected.to eq JSON.parse(jkf)
+    it "is parse #{File.basename(filename)}" do
+      expect(subject).to eq JSON.parse(jkf)
     end
   end
 
   fixtures(:csa).each do |fixture|
-    it_behaves_like :parse_file, fixture
+    it_behaves_like 'parse file', fixture
   end
 
   describe '#convert_preset(preset)' do
@@ -47,7 +47,7 @@ describe Jkf::Converter::Csa do
       }
     end
 
-    it 'should convert preset to PIXXX' do
+    it 'converts preset to PIXXX' do
       pairs.each do |preset, pi|
         expect(csa_converter.send(:convert_preset, preset)).to eq "PI#{pi}"
       end
