@@ -333,7 +333,7 @@ module Jkf
                 s0 = :failed
               else
                 @reported_pos = s0
-                s0 = { 'te' => s3.join.to_i, 'moves' => s6[1..-1] }
+                s0 = { 'te' => s3.join.to_i, 'moves' => s6[1..] }
               end
             end
           else
@@ -409,7 +409,7 @@ module Jkf
         str.gsub(/　$/, '').split('　').each do |kind|
           next if kind.empty?
 
-          ret[kind2csa(kind[0])] = kind.length == 1 ? 1 : kan2n2(kind[1..-1])
+          ret[kind2csa(kind[0])] = kind.length == 1 ? 1 : kan2n2(kind[1..])
         end
 
         ret
