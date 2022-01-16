@@ -1,8 +1,10 @@
 # jkf
 
-jkf is [json-kifu-format](https://github.com/na2hiro/json-kifu-format) library for Ruby.
+jkf is [json-kifu-format][jkf] library for Ruby.
 
-### Feature
+[jkf]: https://github.com/na2hiro/json-kifu-format
+
+## Feature
 
 * KIF, KI2, CSA to JKF
 * JKF to KIF, KI2, CSA
