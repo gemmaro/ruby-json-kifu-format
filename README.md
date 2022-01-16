@@ -11,16 +11,10 @@ jkf is [json-kifu-format][jkf] library for Ruby.
 
 ## Installation
 
-Add this line to your `Gemfile`:
+Add this line to your `Gemfile`, and execute `bundle`.
 
 ```ruby
-gem 'jkf', git: {{repository URL}}
-```
-
-And then execute:
-
-```shell-session
-bundle
+gem 'jkf', git: <repository-url>
 ```
 
 ## Usage
@@ -47,6 +41,15 @@ jkf = csa_parser.parse(csa_str) #=> Hash
 kif = kif_converter.convert(jkf) #=> String
 ki2 = ki2_converter.convert(jkf) #=> String
 csa = csa_converter.convert(jkf) #=> String
+```
+
+See the YARD documentation for the API.
+
+## Develop
+
+```shell-session
+# Run RSpec and RuboCop when needed
+bundle exec guard
 ```
 
 ## Contributing
