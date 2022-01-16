@@ -46,7 +46,7 @@ module Jkf
           line += "|#{n2kan(y + 1)}\n"
           result += line
         end
-        result + "+---------------------------+\n"
+        "#{result}+---------------------------+\n"
       end
 
       def convert_comments(comments)
@@ -103,7 +103,7 @@ module Jkf
                     end
         end
 
-        result + "\n"
+        "#{result}\n"
       end
 
       def convert_piece_with_pos(move)

@@ -487,7 +487,7 @@ module Jkf
               s0 = :failed
             else
               @reported_pos = s0
-              s0 = '&' + s2.join
+              s0 = "&#{s2.join}"
             end
           end
         end

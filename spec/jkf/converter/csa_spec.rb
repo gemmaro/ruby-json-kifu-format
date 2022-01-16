@@ -49,7 +49,7 @@ describe Jkf::Converter::Csa do
 
     it 'should convert preset to PIXXX' do
       pairs.each do |preset, pi|
-        expect(csa_converter.send(:convert_preset, preset)).to eq 'PI' + pi
+        expect(csa_converter.send(:convert_preset, preset)).to eq "PI#{pi}"
       end
     end
 
