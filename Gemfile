@@ -4,18 +4,18 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rake', '~> 10.0'
+gem 'rake', '~> 10.0', require: false
 
 group :development do
   gem 'redcarpet', require: false
   gem 'yard', require: false
 
-  gem 'guard-rubocop', require: false
-  gem 'rubocop', '~> 0.37.2', require: false
+  gem 'guard-rubocop', '~> 1.5', require: false
+  gem 'rubocop', '~> 1.24', require: false
 end
 
 group :test do
-  gem 'guard-rspec', require: false
+  gem 'guard-rspec', '~> 4.7', require: false
   gem 'rspec', '~> 3.0', require: false
   gem 'simplecov', '~> 0.13.0', require: false
 end
