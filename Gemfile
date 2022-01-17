@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rake', '~> 10.0', require: false
+gem 'rake', '~> 13.0', require: false
 
 group :development do
   gem 'guard-yard', '~> 2.2', require: false
@@ -20,5 +20,5 @@ end
 group :test do
   gem 'guard-rspec', '~> 4.7', require: false
   gem 'rspec', '~> 3.0', require: false
-  gem 'simplecov', '~> 0.13.0', require: false
+  gem 'simplecov', '~> 0.21.0', require: false
 end
