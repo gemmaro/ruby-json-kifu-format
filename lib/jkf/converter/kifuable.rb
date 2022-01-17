@@ -13,7 +13,7 @@ module Jkf
         data = initial['data']
         if data
           result += convert_teban(data, 1)
-          if hands = data['hands']
+          if (hands = data['hands'])
             result += convert_hands(hands, 1) if hands[1]
             footer += convert_hands(hands, 0) if hands[0]
           end

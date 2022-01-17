@@ -42,7 +42,7 @@ module Jkf
       # match regexp
       def match_regexp(reg)
         ret = nil
-        if matched = reg.match(@input[@current_pos])
+        if (matched = reg.match(@input[@current_pos]))
           ret = matched.to_s
           @current_pos += ret.size
         else
