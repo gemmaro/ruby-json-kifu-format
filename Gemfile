@@ -7,6 +7,7 @@ gemspec
 gem 'rake', '~> 10.0', require: false
 
 group :development do
+  gem 'guard-yard', '~> 2.2', require: false
   gem 'redcarpet', require: false
   gem 'yard', require: false
 

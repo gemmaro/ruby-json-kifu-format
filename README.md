@@ -44,6 +44,7 @@ csa = csa_converter.convert(jkf) #=> String
 ```
 
 See the YARD documentation for the API.
+To generate one, run `rake yard` and open `<repository-root-path>/doc/index.html`.
 
 ## Develop
 

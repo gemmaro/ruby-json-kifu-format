@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-scope(groups: %w[specs])
+scope(groups: %w[specs doc])
 
 directories %w[spec lib]
 
@@ -26,4 +26,8 @@ group :specs, halt_on_fail: true do
   end
 end
 
-# vim: ft=ruby
+group :doc do
+  guard 'yard' do
+    watch(%r{lib/.+\.rb})
+  end
+end
