@@ -69,10 +69,7 @@ module Jkf
             s2 = match_regexp(/^[^：\r\n]/)
           end
         end
-        if s1 == :failed
-          @current_pos = s0
-          s0 = :failed
-        elsif match_str('：') != :failed
+        if (s1 != :failed) && match_str('：') != :failed
           s3 = parse_nonls
           if parse_nl == :failed
             @current_pos = s0
@@ -89,10 +86,7 @@ module Jkf
         if s0 == :failed
           s0 = @current_pos
           s1 = parse_turn
-          if s1 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str('手番') != :failed
+          if (s1 != :failed) && match_str('手番') != :failed
             if parse_nl == :failed
               @current_pos = s0
               s0 = :failed
@@ -106,10 +100,7 @@ module Jkf
           end
           if s0 == :failed
             s0 = @current_pos
-            if match_str('盤面回転') == :failed
-              @current_pos = s0
-              s0 = :failed
-            elsif parse_nl != :failed
+            if (match_str('盤面回転') != :failed) && parse_nl != :failed
               @reported_pos = s0
               s0 = nil
             else
@@ -338,10 +329,7 @@ module Jkf
               s0 = :failed
             else
               s3 = match_regexp(/^[1-9]/)
-              if s3 == :failed
-                @current_pos = s0
-                s0 = :failed
-              elsif match_str(')') != :failed
+              if (s3 != :failed) && match_str(')') != :failed
                 @reported_pos = s0
                 s0 = { 'x' => s2.to_i, 'y' => s3.to_i }
               else
@@ -399,15 +387,9 @@ module Jkf
         s0 = @current_pos
         s1 = match_digits!
 
-        if s1 == :failed
-          @current_pos = s0
-          s0 = :failed
-        elsif match_str(':') != :failed
+        if (s1 != :failed) && match_str(':') != :failed
           s3 = match_digits!
-          if s3 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str(':') != :failed
+          if (s3 != :failed) && match_str(':') != :failed
             s5 = match_digits!
             if s5 == :failed
               @current_pos = s0
@@ -431,10 +413,7 @@ module Jkf
       def parse_ms(with_hour: false)
         s0 = @current_pos
         s1 = match_digits!
-        if s1 == :failed
-          @current_pos = s0
-          s0 = :failed
-        elsif match_str(':') != :failed
+        if (s1 != :failed) && match_str(':') != :failed
           s3 = match_digits!
           if s3 == :failed
             @current_pos = s0
@@ -503,10 +482,7 @@ module Jkf
         else
           match_spaces
           s3 = parse_te
-          if s3 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str('手') != :failed
+          if (s3 != :failed) && match_str('手') != :failed
             if parse_nl == :failed
               @current_pos = s0
               s0 = :failed

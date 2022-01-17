@@ -117,10 +117,7 @@ module Jkf
               s4 = match_regexp(/^[^:]/)
             end
           end
-          if s3 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str(':') != :failed
+          if (s3 != :failed) && match_str(':') != :failed
             s4 = parse_nonls
             if parse_nl == :failed
               @current_pos = s0
@@ -229,10 +226,7 @@ module Jkf
           else
             parse_comments
             s5 = parse_teban
-            if s5 == :failed
-              @current_pos = s0
-              :failed
-            elsif parse_nl != :failed
+            if (s5 != :failed) && parse_nl != :failed
               @reported_pos = s0
               lambda do |data, koma, teban|
                 if data == 'NO'
@@ -314,10 +308,7 @@ module Jkf
       # ikkatsuline : "P" [1-9] masu+ nl
       def parse_ikkatsu_line
         s0 = @current_pos
-        if match_str('P') == :failed
-          @current_pos = s0
-          s0 = :failed
-        elsif match_digit != :failed
+        if (match_str('P') != :failed) && match_digit != :failed
           s4 = parse_masu
           if s4 == :failed
             s3 = :failed
@@ -411,10 +402,7 @@ module Jkf
                 s4 = parse_xy_piece
               end
             end
-            if s3 == :failed
-              @current_pos = s0
-              s0 = :failed
-            elsif parse_nl != :failed
+            if (s3 != :failed) && parse_nl != :failed
               @reported_pos = s0
               s0 = { 'teban' => s2, 'pieces' => s3 }
             else
@@ -502,10 +490,7 @@ module Jkf
               s0 = :failed
             else
               s4 = parse_piece
-              if s4 == :failed
-                @current_pos = s0
-                s0 = :failed
-              elsif parse_nl != :failed
+              if (s4 != :failed) && parse_nl != :failed
                 @reported_pos = s0
                 s0 = lambda do |color, from, to, piece|
                   ret = { 'color' => color, 'to' => to, 'piece' => piece }
@@ -540,10 +525,7 @@ module Jkf
               s3 = match_regexp(/^[\-+_A-Z]/)
             end
           end
-          if s2 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif parse_nl != :failed
+          if (s2 != :failed) && parse_nl != :failed
             @reported_pos = s0
             s0 = { 'special' => s2.join }
           else

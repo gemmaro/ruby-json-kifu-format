@@ -66,15 +66,9 @@ module Jkf
               s3 = parse_masu
             end
           end
-          if s2 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str('|') != :failed
+          if (s2 != :failed) && match_str('|') != :failed
             s4 = parse_nonls!
-            if s4 == :failed
-              @current_pos = s0
-              s0 = :failed
-            elsif parse_nl != :failed
+            if (s4 != :failed) && parse_nl != :failed
               @reported_pos = s0
               s0 = s2
             else
@@ -215,15 +209,9 @@ module Jkf
           :failed
         else
           s2 = match_digits!
-          if s2 == :failed
-            @current_pos = s0
-            :failed
-          elsif match_str('手') != :failed
+          if (s2 != :failed) && match_str('手') != :failed
             s4 = @current_pos
-            if match_str('で') == :failed
-              @current_pos = s4
-              s4 = :failed
-            elsif parse_turn != :failed
+            if (match_str('で') != :failed) && parse_turn != :failed
               if match_str('手の') == :failed
                 @current_pos = s4
                 s4 = :failed
@@ -258,10 +246,7 @@ module Jkf
                 end
               end
             end
-            if s4 == :failed
-              @current_pos = s0
-              :failed
-            elsif parse_nl != :failed || eos?
+            if (s4 != :failed) && (parse_nl != :failed || eos?)
               @reported_pos = s0
               s4
             else
@@ -324,10 +309,7 @@ module Jkf
       # result_timeup : "で時間切れにより" turn "手の勝ち"
       def parse_result_timeup
         s0 = @current_pos
-        if match_str('で時間切れにより') == :failed
-          @current_pos = s0
-          :failed
-        elsif parse_turn != :failed
+        if (match_str('で時間切れにより') != :failed) && parse_turn != :failed
           if match_str('手の勝ち') == :failed
             @current_pos = s0
             :failed

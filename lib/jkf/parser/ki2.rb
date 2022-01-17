@@ -60,10 +60,7 @@ module Jkf
             s2 = match_regexp(/^[^：\r\n]/)
           end
         end
-        if s1 == :failed
-          @current_pos = s0
-          s0 = :failed
-        elsif match_str('：') != :failed
+        if (s1 != :failed) && match_str('：') != :failed
           s3 = parse_nonls
           s5 = parse_nl
           if s5 == :failed
@@ -319,10 +316,7 @@ module Jkf
         else
           match_spaces
           s3 = match_digits!
-          if s3 == :failed
-            @current_pos = s0
-            s0 = :failed
-          elsif match_str('手') != :failed
+          if (s3 != :failed) && match_str('手') != :failed
             if parse_nl == :failed
               @current_pos = s0
               s0 = :failed
