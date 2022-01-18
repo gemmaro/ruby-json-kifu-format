@@ -519,12 +519,12 @@ module Jkf
         fork_stack = [{ 'te' => 0, 'moves' => moves }]
         forks.each do |f|
           now_fork = f
-          _fork = fork_stack.pop
-          _fork = fork_stack.pop while _fork['te'] > now_fork['te']
-          move = _fork['moves'][now_fork['te'] - _fork['te']]
+          fork = fork_stack.pop
+          fork = fork_stack.pop while fork['te'] > now_fork['te']
+          move = fork['moves'][now_fork['te'] - fork['te']]
           move['forks'] ||= []
           move['forks'] << now_fork['moves']
-          fork_stack << _fork
+          fork_stack << fork
           fork_stack << now_fork
         end
       end

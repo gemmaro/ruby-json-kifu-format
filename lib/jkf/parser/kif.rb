@@ -587,7 +587,7 @@ module Jkf
       def reverse_color(moves)
         moves.each do |move|
           move['move']['color'] = (move['move']['color'] + 1) % 2 if move['move'] && move['move']['color']
-          move['forks']&.each { |_fork| reverse_color(_fork) }
+          move['forks']&.each { |fork| reverse_color(fork) }
         end
       end
     end
