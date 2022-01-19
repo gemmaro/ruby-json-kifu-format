@@ -140,7 +140,7 @@ describe Jkf::Parser::Ki2 do
   describe 'initial' do
     context 'simple' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：その他　
           上手の持駒：銀四　桂四　
             ９ ８ ７ ６ ５ ４ ３ ２ １
@@ -160,7 +160,7 @@ describe Jkf::Parser::Ki2 do
           下手：shitate
           上手：uwate
           ▲１三香 △１二桂 ▲同香成
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -207,14 +207,14 @@ describe Jkf::Parser::Ki2 do
   describe 'fork' do
     context 'normal' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：平手
           ▲７六歩 △３四歩 ▲２二角成 △同　銀 ▲４五角
           まで5手で中断
 
           変化：3手
           ▲６六歩 △８四歩
-        EOS
+        END_OF_STRING
       end
 
       it do

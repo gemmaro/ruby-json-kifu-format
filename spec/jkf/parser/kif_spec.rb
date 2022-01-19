@@ -58,7 +58,7 @@ describe Jkf::Parser::Kif do
 
   context 'gote' do
     let(:str) do
-      <<~EOS
+      <<~END_OF_STRING
         手合割：その他
         上手番
         上手の持駒：
@@ -81,7 +81,7 @@ describe Jkf::Parser::Kif do
            3 ８八角成(22)
            4 中断
         まで3手で中断
-      EOS
+      END_OF_STRING
     end
 
     it do
@@ -131,14 +131,14 @@ describe Jkf::Parser::Kif do
 
   context 'comment' do
     let(:str) do
-      <<~EOS
+      <<~END_OF_STRING
         *開始時コメント
         1 ７六歩(77)
         *初手コメント
         *初手コメント2
         2 ３四歩(33)
         3 ２二角成(88)
-      EOS
+      END_OF_STRING
     end
 
     it do
@@ -157,13 +157,13 @@ describe Jkf::Parser::Kif do
   context 'time' do
     context 'when nospaces' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           1 ７六歩(77) (0:01/00:00:01)
           2 ３四歩(33) (0:02/00:00:02)
           3 ２二角成(88) (0:20/00:00:21)
           4 同　銀(31) (0:03/00:00:05)
           5 ４五角打 (0:39/00:01:00)
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -187,7 +187,7 @@ describe Jkf::Parser::Kif do
 
     context 'with spaces' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           先手：人
           後手：レベル3
           手数----指手---------消費時間--
@@ -195,7 +195,7 @@ describe Jkf::Parser::Kif do
              2 ３四歩(33)   (00:01 /00:00:01)
              3 ６六歩(67)   (00:03/ 00:00:17)
              4 ３三角(22)   (00:01/00:00:02 )
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -219,7 +219,7 @@ describe Jkf::Parser::Kif do
 
     context 'when mm:ss mm:ss' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           先手：人
           後手：レベル3
           手数----指手---------消費時間--
@@ -227,7 +227,7 @@ describe Jkf::Parser::Kif do
              2 ３四歩(33)   (00:01 /00:01)
              3 ６六歩(67)   (00:03/ 00:17)
              4 ３三角(22)   (00:01/00:02 )
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -252,13 +252,13 @@ describe Jkf::Parser::Kif do
 
   context 'total-time-ms' do
     let(:str) do
-      <<~EOS
+      <<~END_OF_STRING
         1 ７六歩(77) (0:01/00:01)
         2 ３四歩(33) (0:02/00:02)
         3 ２二角成(88) (0:20/00:21)
          4 同　銀(31) (0:03/00:05)
         5 ４五角打 (0:39/01:00)
-      EOS
+      END_OF_STRING
     end
 
     it do
@@ -347,7 +347,7 @@ describe Jkf::Parser::Kif do
   describe 'initial' do
     context 'simple' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：その他　
           上手の持駒：銀四　桂四　
             ９ ８ ７ ６ ５ ４ ３ ２ １
@@ -369,7 +369,7 @@ describe Jkf::Parser::Kif do
           1 １三香打
           2 １二桂打
           3 同　香成(13)
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -415,7 +415,7 @@ describe Jkf::Parser::Kif do
 
     context 'Kifu for iPhone dialect' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：平手
           上手の持駒：銀四 桂四#{' '}
             ９ ８ ７ ６ ５ ４ ３ ２ １
@@ -437,7 +437,7 @@ describe Jkf::Parser::Kif do
           1 １三香打
           2 １二桂打
           3 同　香成(13)
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -485,7 +485,7 @@ describe Jkf::Parser::Kif do
   describe 'fork' do
     context 'normal' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：平手
           1 ７六歩(77)
           2 ３四歩(33)
@@ -497,7 +497,7 @@ describe Jkf::Parser::Kif do
           変化：3手
           3 ６六歩(67)
           4 ８四歩(83)
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -528,7 +528,7 @@ describe Jkf::Parser::Kif do
 
     context 'gote' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：その他
           上手番
           上手の持駒：
@@ -555,7 +555,7 @@ describe Jkf::Parser::Kif do
           変化：3手
           3 ４四歩(43)
           4 ２六歩(27)
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -615,7 +615,7 @@ describe Jkf::Parser::Kif do
   describe 'split' do
     context 'normal' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：平手
           手数----指手--
           *開始コメント
@@ -624,7 +624,7 @@ describe Jkf::Parser::Kif do
           2 ３四歩(33)
           3 ２二角成(88)+
           4 中断
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -646,7 +646,7 @@ describe Jkf::Parser::Kif do
 
     context 'after initial comment' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           手合割：平手
           *開始コメント
           手数----指手--
@@ -655,7 +655,7 @@ describe Jkf::Parser::Kif do
           2 ３四歩(33)
           3 ２二角成(88)+
           4 中断
-        EOS
+        END_OF_STRING
       end
 
       it do

@@ -69,7 +69,7 @@ describe Jkf::Parser::Csa do
 
     context 'simple' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           PI
           +
@@ -78,7 +78,7 @@ describe Jkf::Parser::Csa do
           +8822UM
           -3122GI
           +0045KA
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -97,7 +97,7 @@ describe Jkf::Parser::Csa do
 
     context 'comment' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           PI
           +
@@ -107,7 +107,7 @@ describe Jkf::Parser::Csa do
           '初手コメント2
           -3334FU
           +8822UM
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -125,7 +125,7 @@ describe Jkf::Parser::Csa do
 
     context 'special' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           PI
           +
@@ -134,7 +134,7 @@ describe Jkf::Parser::Csa do
           +7978GI
           -2288UM
           %TORYO
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -153,7 +153,7 @@ describe Jkf::Parser::Csa do
 
     context 'comma' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           PI
           +
@@ -161,7 +161,7 @@ describe Jkf::Parser::Csa do
           +8822UM,T100
           -3122GI,T1
           +0045KA,T0
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -185,7 +185,7 @@ describe Jkf::Parser::Csa do
 
     context 'time' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           PI
           +
@@ -199,7 +199,7 @@ describe Jkf::Parser::Csa do
           T1
           +0045KA
           T0
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -224,7 +224,7 @@ describe Jkf::Parser::Csa do
     describe '開始局面' do
       context '平手初期局面' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             V2.2
             PI82HI22KA91KY81KE21KE11KY
             -
@@ -233,7 +233,7 @@ describe Jkf::Parser::Csa do
             -3122GI
             +8866KA
             -7182GI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -288,7 +288,7 @@ describe Jkf::Parser::Csa do
 
       context '一括表現' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             V2.2
             P1 *  * -GI-KI-OU-KI-GI *  *#{' '}
             P1 *  *  *  *  *  *  *  *  *#{' '}
@@ -305,7 +305,7 @@ describe Jkf::Parser::Csa do
             -3122GI
             +8866KA
             -7182GI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -360,7 +360,7 @@ describe Jkf::Parser::Csa do
 
       context '駒別単独表現' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             V2.2
             P-11OU21FU22FU23FU24FU25FU26FU27FU28FU29FU
             P+00HI00HI00KY00KY00KY00KY
@@ -369,7 +369,7 @@ describe Jkf::Parser::Csa do
             +0013KY
             -0012KE
             +1312NY
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -411,7 +411,7 @@ describe Jkf::Parser::Csa do
 
       context 'AL' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             V2.2
             P+23FU
             P-11OU21KE
@@ -420,7 +420,7 @@ describe Jkf::Parser::Csa do
             +
             +0022KI
             %TSUMI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -458,7 +458,7 @@ describe Jkf::Parser::Csa do
 
     context 'header' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           V2.2
           N+sente
           N-gote
@@ -471,7 +471,7 @@ describe Jkf::Parser::Csa do
           +7978GI
           -2288UM
           %TORYO
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -530,7 +530,7 @@ describe Jkf::Parser::Csa do
 
     context 'simple' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           PI
           +
           +7776FU
@@ -538,7 +538,7 @@ describe Jkf::Parser::Csa do
           +8822UM
           -3122GI
           +0045KA
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -557,7 +557,7 @@ describe Jkf::Parser::Csa do
 
     context 'comment' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           PI
           +
           '開始時コメント
@@ -566,7 +566,7 @@ describe Jkf::Parser::Csa do
           '初手コメント2
           -3334FU
           +8822UM
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -584,7 +584,7 @@ describe Jkf::Parser::Csa do
 
     context 'special' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           PI
           +
           +7776FU
@@ -592,7 +592,7 @@ describe Jkf::Parser::Csa do
           +7978GI
           -2288UM
           %TORYO
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -611,14 +611,14 @@ describe Jkf::Parser::Csa do
 
     context 'comma' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           PI
           +
           +7776FU,T12,-3334FU,T2
           +8822UM,T100
           -3122GI,T1
           +0045KA,T0
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -642,7 +642,7 @@ describe Jkf::Parser::Csa do
 
     context 'time' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           PI
           +
           +7776FU
@@ -655,7 +655,7 @@ describe Jkf::Parser::Csa do
           T1
           +0045KA
           T0
-        EOS
+        END_OF_STRING
       end
 
       it do
@@ -680,7 +680,7 @@ describe Jkf::Parser::Csa do
     describe '開始局面' do
       context '平手初期局面' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             PI82HI22KA91KY81KE21KE11KY
             -
             -5142OU
@@ -688,7 +688,7 @@ describe Jkf::Parser::Csa do
             -3122GI
             +8866KA
             -7182GI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -743,7 +743,7 @@ describe Jkf::Parser::Csa do
 
       context '一括表現' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             P1 *  * -GI-KI-OU-KI-GI *  *#{' '}
             P1 *  *  *  *  *  *  *  *  *#{' '}
             P3-FU-FU-FU-FU-FU-FU-FU-FU-FU
@@ -759,7 +759,7 @@ describe Jkf::Parser::Csa do
             -3122GI
             +8866KA
             -7182GI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -819,7 +819,7 @@ describe Jkf::Parser::Csa do
 
       context '駒別単独表現' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             P-11OU21FU22FU23FU24FU25FU26FU27FU28FU29FU
             P+00HI00HI00KY00KY00KY00KY
             P-00GI00GI00GI00GI00KE00KE00KE00KE
@@ -827,7 +827,7 @@ describe Jkf::Parser::Csa do
             +0013KY
             -0012KE
             +1312NY
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -869,7 +869,7 @@ describe Jkf::Parser::Csa do
 
       context 'AL' do
         let(:str) do
-          <<~EOS
+          <<~END_OF_STRING
             V2.2
             P+23FU
             P-11OU21KE
@@ -878,7 +878,7 @@ describe Jkf::Parser::Csa do
             +
             +0022KI
             %TSUMI
-          EOS
+          END_OF_STRING
         end
 
         it do
@@ -916,7 +916,7 @@ describe Jkf::Parser::Csa do
 
     context 'header' do
       let(:str) do
-        <<~EOS
+        <<~END_OF_STRING
           N+sente
           N-gote
           PI
@@ -926,7 +926,7 @@ describe Jkf::Parser::Csa do
           +7978GI
           -2288UM
           %TORYO
-        EOS
+        END_OF_STRING
       end
 
       it do
