@@ -141,12 +141,12 @@ module Jkf
                    end
       end
 
-      def n2zen(n)
-        '０１２３４５６７８９'[n]
+      def n2zen(digit)
+        '０１２３４５６７８９'[digit]
       end
 
-      def n2kan(n)
-        '〇一二三四五六七八九'[n]
+      def n2kan(digit)
+        '〇一二三四五六七八九'[digit]
       end
 
       def csa2kind(csa)

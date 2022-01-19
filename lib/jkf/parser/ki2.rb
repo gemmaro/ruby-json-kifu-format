@@ -360,15 +360,15 @@ module Jkf
       end
 
       # transfrom fugou to jkf
-      def transform_fugou(pl, pi, sou, dou, pro, da)
-        ret = { 'piece' => pi }
-        if pl['same']
+      def transform_fugou(place, piece, sou, dou, pro, drop)
+        ret = { 'piece' => piece }
+        if place['same']
           ret['same'] = true
         else
-          ret['to'] = pl
+          ret['to'] = place
         end
         ret['promote'] = (pro == '成') if pro
-        if da
+        if drop
           ret['relative'] = 'H'
         else
           rel = soutai2relative(sou) + dousa2relative(dou)

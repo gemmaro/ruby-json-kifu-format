@@ -21,16 +21,16 @@ module ExtendHelper
 end
 
 module IncludeHelper
-  def pos(x, y)
-    { 'x' => x, 'y' => y }
+  def pos(coordinate_x, coordinate_y)
+    { 'x' => coordinate_x, 'y' => coordinate_y }
   end
 
-  def hms(h, m, s)
-    { 'h' => h, 'm' => m, 's' => s }
+  def hms(hour, minute, second)
+    { 'h' => hour, 'm' => minute, 's' => second }
   end
 
-  def ms(m, s)
-    { 'm' => m, 's' => s }
+  def ms(minute, second)
+    { 'm' => minute, 's' => second }
   end
 
   def fixtures(type)

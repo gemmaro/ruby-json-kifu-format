@@ -522,9 +522,9 @@ module Jkf
       end
 
       # transform move to jkf
-      def transform_move(line, c)
+      def transform_move(line, comments)
         ret = {}
-        ret['comments'] = c unless c.empty?
+        ret['comments'] = comments unless comments.empty?
         if line['move'].is_a? Hash
           ret['move'] = line['move']
         else

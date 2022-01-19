@@ -105,10 +105,11 @@ module Jkf
         end
       end
 
-      def ljust(str, n)
+      # {https://docs.ruby-lang.org/en/master/String.html#method-i-ljust +String#ljust+}とは異なり、全角文字は幅が2として扱われます。
+      def ljust(str, padded_width)
         len = 0
         str.each_codepoint { |codepoint| len += codepoint > 255 ? 2 : 1 }
-        str + (' ' * (n - len))
+        str + (' ' * (padded_width - len))
       end
 
       def pos2str(pos)

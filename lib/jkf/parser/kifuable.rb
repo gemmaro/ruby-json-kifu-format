@@ -543,22 +543,22 @@ module Jkf
       end
 
       # zenkaku number to number
-      def zen2n(s)
-        '０１２３４５６７８９'.index(s)
+      def zen2n(full_width_digit)
+        '０１２３４５６７８９'.index(full_width_digit)
       end
 
       # kanji number to number (1)
-      def kan2n(s)
-        '〇一二三四五六七八九'.index(s)
+      def kan2n(kanji_digit)
+        '〇一二三四五六七八九'.index(kanji_digit)
       end
 
       # kanji number to number (2)
-      def kan2n2(s)
-        case s.length
+      def kan2n2(kanji_number_zero_to_ten)
+        case kanji_number_zero_to_ten.length
         when 1
-          '〇一二三四五六七八九十'.index(s)
+          '〇一二三四五六七八九十'.index(kanji_number_zero_to_ten)
         when 2
-          '〇一二三四五六七八九十'.index(s[1]) + 10
+          '〇一二三四五六七八九十'.index(kanji_number_zero_to_ten[1]) + 10
         else
           raise '21以上の数値に対応していません'
         end
