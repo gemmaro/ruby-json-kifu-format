@@ -54,7 +54,7 @@ module Jkf
       end
 
       def convert_motigoma(pieces)
-        pieces.to_a.reverse.map do |(piece, num)|
+        joined_pieces = pieces.to_a.reverse.map do |(piece, num)|
           next unless num > 0
 
           str = csa2kind(piece)
@@ -64,7 +64,9 @@ module Jkf
             str += n2kan(num)
           end
           str
-        end.compact.join('　') + "　\n"
+        end.compact.join('　')
+
+        "#{joined_pieces}　\n"
       end
 
       def convert_board_piece(piece)

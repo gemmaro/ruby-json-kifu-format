@@ -94,8 +94,9 @@ module Jkf
         "T#{sec}\n"
       end
 
+      # 文字列の配列を改行文字を挟みつつ1つの文字列にします
       def convert_comments(comments)
-        comments.map { |comment| "'#{comment}" }.join("\n") + "\n"
+        comments.map { "'#{_1}\n" }.join
       end
 
       def convert_board(board)
@@ -115,38 +116,40 @@ module Jkf
         result
       end
 
+      # よく知られた初期局面を表す文字列を、CSA形式の局面表現に変換します
       def convert_preset(preset)
-        'PI' +
-          case preset
-          when 'HIRATE' # 平手
-            ''
-          when 'KY' # 香落ち
-            '11KY'
-          when 'KY_R' # 右香落ち
-            '91KY'
-          when 'KA' # 角落ち
-            '22KA'
-          when 'HI' # 飛車落ち
-            '82HI'
-          when 'HIKY' # 飛香落ち
-            '22HI11KY91KY'
-          when '2' # 二枚落ち
-            '82HI22KA'
-          when '3' # 三枚落ち
-            '82HI22KA91KY'
-          when '4' # 四枚落ち
-            '82HI22KA11KY91KY'
-          when '5' # 五枚落ち
-            '82HI22KA81KE11KY91KY'
-          when '5_L' # 左五枚落ち
-            '82HI22KA21KE11KY91KY'
-          when '6' # 六枚落ち
-            '82HI22KA21KE81KE11KY91KY'
-          when '8' # 八枚落ち
-            '82HI22KA31GI71GI21KE81KE11KY91KY'
-          when '10' # 十枚落ち
-            '82HI22KA41KI61KI31GI71GI21KE81KE11KY91KY'
-          end
+        csa_preset = case preset
+                     when 'HIRATE' # 平手
+                       ''
+                     when 'KY' # 香落ち
+                       '11KY'
+                     when 'KY_R' # 右香落ち
+                       '91KY'
+                     when 'KA' # 角落ち
+                       '22KA'
+                     when 'HI' # 飛車落ち
+                       '82HI'
+                     when 'HIKY' # 飛香落ち
+                       '22HI11KY91KY'
+                     when '2' # 二枚落ち
+                       '82HI22KA'
+                     when '3' # 三枚落ち
+                       '82HI22KA91KY'
+                     when '4' # 四枚落ち
+                       '82HI22KA11KY91KY'
+                     when '5' # 五枚落ち
+                       '82HI22KA81KE11KY91KY'
+                     when '5_L' # 左五枚落ち
+                       '82HI22KA21KE11KY91KY'
+                     when '6' # 六枚落ち
+                       '82HI22KA21KE81KE11KY91KY'
+                     when '8' # 八枚落ち
+                       '82HI22KA31GI71GI21KE81KE11KY91KY'
+                     when '10' # 十枚落ち
+                       '82HI22KA41KI61KI31GI71GI21KE81KE11KY91KY'
+                     end
+
+        "PI#{csa_preset}"
       end
 
       def csa_color(color)
