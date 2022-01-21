@@ -85,7 +85,7 @@ module Jkf
 
       def convert_move_and_split(move, num)
         result = convert_move(move['move'])
-        split = if num % 6 == 0
+        split = if (num % 6).zero?
                   "\n"
                 else
                   result.size == 4 ? ' ' * 4 : ' ' * 2
@@ -94,7 +94,7 @@ module Jkf
       end
 
       def convert_move(move)
-        result = move['color'] == 0 ? '▲' : '△'
+        result = (move['color']).zero? ? '▲' : '△'
         result += convert_piece_with_pos(move)
         result += csa2relative(move['relative']) if move['relative']
         result

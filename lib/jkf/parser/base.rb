@@ -47,7 +47,7 @@ module Jkf
           @current_pos += ret.size
         else
           ret = :failed
-          fail(type: 'class', value: reg.inspect, description: reg.inspect) if @silent_fails == 0
+          fail(type: 'class', value: reg.inspect, description: reg.inspect) if @silent_fails&.zero?
         end
         ret
       end
@@ -60,7 +60,7 @@ module Jkf
           @current_pos += str.size
         else
           ret = :failed
-          fail(type: 'literal', value: str, description: "\"#{str}\"") if @slient_fails == 0
+          fail(type: 'literal', value: str, description: "\"#{str}\"") if @slient_fails&.zero?
         end
         ret
       end

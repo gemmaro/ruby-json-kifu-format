@@ -719,7 +719,7 @@ module Jkf
         lines.each do |line|
           line['pieces'].each do |piece|
             xy = piece['xy']
-            if xy['x'] == 0
+            if (xy['x']).zero?
               if piece['piece'] == 'AL'
                 hands[line['teban']] = all
                 return { 'preset' => 'OTHER', 'data' => { 'board' => board, 'hands' => hands } }

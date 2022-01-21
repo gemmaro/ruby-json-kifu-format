@@ -45,7 +45,7 @@ module Jkf
         result = ''
         sum = 0
         hands[color].each_value { |n| sum += n }
-        if sum > 0
+        if sum.positive?
           result += "P#{csa_color(color)}"
           hands[color].to_a.reverse_each { |(k, v)| v.times { result += "00#{k}" } }
           result += "\n"
@@ -153,7 +153,7 @@ module Jkf
       end
 
       def csa_color(color)
-        color == 0 ? '+' : '-'
+        color.zero? ? '+' : '-'
       end
 
       def pos2str(pos)

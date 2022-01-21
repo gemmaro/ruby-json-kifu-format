@@ -55,11 +55,11 @@ module Jkf
 
       def convert_motigoma(pieces)
         joined_pieces = pieces.to_a.reverse.map do |(piece, num)|
-          next unless num > 0
+          next unless num.positive?
 
           str = csa2kind(piece)
           if num > 1
-            str += n2kan(num / 10) if num / 10 > 0
+            str += n2kan(num / 10) if (num / 10).positive?
             num %= 10
             str += n2kan(num)
           end
@@ -75,7 +75,7 @@ module Jkf
         if piece == {}
           result = ' ・'
         else
-          result += piece['color'] == 0 ? ' ' : 'v'
+          result += (piece['color']).zero? ? ' ' : 'v'
           result += csa2kind(piece['kind'])
         end
 
