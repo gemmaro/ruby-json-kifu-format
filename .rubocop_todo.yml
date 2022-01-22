@@ -52,11 +52,6 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 24
 
-# Offense count: 1
-Naming/AccessorMethodName:
-  Exclude:
-    - 'lib/jkf/parser/csa.rb'
-
 # Offense count: 45
 # Configuration parameters: CountAsOne.
 RSpec/ExampleLength:

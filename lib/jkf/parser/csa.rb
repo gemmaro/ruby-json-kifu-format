@@ -264,7 +264,7 @@ module Jkf
           else
             @reported_pos = s0
             s0 = lambda do |ps|
-              ret = { 'preset' => 'OTHER', 'data' => { 'board' => get_hirate } }
+              ret = { 'preset' => 'OTHER', 'data' => { 'board' => hirate } }
               ps.each do |piece|
                 ret['data']['board'][piece['xy']['x'] - 1][piece['xy']['y'] - 1] = {}
               end
@@ -758,7 +758,7 @@ module Jkf
       end
 
       # return hirate board jkf
-      def get_hirate
+      def hirate
         [
           [{ 'color' => 1, 'kind' => 'KY' }, {}, { 'color' => 1, 'kind' => 'FU' }, {}, {}, {},
            { 'color' => 0, 'kind' => 'FU' }, {}, { 'color' => 0, 'kind' => 'KY' }],
