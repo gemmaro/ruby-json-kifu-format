@@ -157,7 +157,7 @@ module Jkf
       end
 
       def pos2str(pos)
-        format('%d%d', pos['x'], pos['y'])
+        format('%<x>d%<y>d', x: pos['x'], y: pos['y'])
       end
 
       def version

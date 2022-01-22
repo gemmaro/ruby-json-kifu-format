@@ -87,8 +87,14 @@ module Jkf
       end
 
       def convert_time(time)
-        format('(%2d:%02d/%02d:%02d:%02d)', time['now']['m'], time['now']['s'], time['total']['h'], time['total']['m'],
-               time['total']['s'])
+        format(
+          '(%<now_minute>2d:%<now_second>02d/%<total_hour>02d:%<total_minute>02d:%<total_second>02d)',
+          now_minute: time['now']['m'],
+          now_second: time['now']['s'],
+          total_hour: time['total']['h'],
+          total_minute: time['total']['m'],
+          total_second: time['total']['s']
+        )
       end
 
       def special2kan(special)
@@ -113,7 +119,7 @@ module Jkf
       end
 
       def pos2str(pos)
-        format('%d%d', pos['x'], pos['y'])
+        format('%<x>d%<y>d', x: pos['x'], y: pos['y'])
       end
     end
   end
