@@ -27,12 +27,12 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   Max: 717
 
-# Offense count: 21
+# Offense count: 19
 # Configuration parameters: IgnoredMethods.
 Metrics/CyclomaticComplexity:
   Max: 18
 
-# Offense count: 88
+# Offense count: 86
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 Metrics/MethodLength:
   Max: 55
@@ -75,15 +75,6 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/NestedGroups:
   Max: 4
 
-# Offense count: 3
-# Configuration parameters: MinBranchesCount.
-Style/HashLikeCase:
-  Exclude:
-    - 'lib/jkf/converter/csa.rb'
-    - 'lib/jkf/converter/kif.rb'
-    - 'lib/jkf/converter/kifuable.rb'
-
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https

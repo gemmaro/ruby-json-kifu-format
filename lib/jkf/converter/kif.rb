@@ -97,18 +97,20 @@ module Jkf
         )
       end
 
+      SPECIAL_MOVE_MAPPING = {
+        'CHUDAN' => '中断',
+        'TORYO' => '投了',
+        'JISHOGI' => '持将棋',
+        'SENNICHITE' => '千日手',
+        'TSUMI' => '詰み',
+        'FUZUMI' => '不詰',
+        'TIME_UP' => '切れ負け',
+        'ILLEGAL_ACTION' => '反則勝ち',
+        'ILLEGAL_MOVE' => '反則負け'
+      }.freeze
+
       def special2kan(special)
-        case special
-        when 'CHUDAN' then '中断'
-        when 'TORYO' then '投了'
-        when 'JISHOGI' then '持将棋'
-        when 'SENNICHITE' then '千日手'
-        when 'TSUMI' then '詰み'
-        when 'FUZUMI' then '不詰'
-        when 'TIME_UP' then '切れ負け'
-        when 'ILLEGAL_ACTION' then '反則勝ち'
-        when 'ILLEGAL_MOVE' then '反則負け'
-        end
+        SPECIAL_MOVE_MAPPING[special]
       end
 
       # {https://docs.ruby-lang.org/en/master/String.html#method-i-ljust +String#ljust+}とは異なり、全角文字は幅が2として扱われます。

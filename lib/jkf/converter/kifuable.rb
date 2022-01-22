@@ -82,17 +82,19 @@ module Jkf
         result
       end
 
+      GAMESET_MAPPING = {
+        'TORYO' => '勝ち',
+        'ILLEGAL_ACTION' => '反則勝ち',
+        'ILLEGAL_MOVE' => '反則負け'
+      }.freeze
+
       def convert_special(special, index)
         result = "まで#{index + 1}手"
 
         if special == 'TORYO' || special =~ /ILLEGAL/
           turn = @players[index % 2]
           result += "で#{turn}手の"
-          result += case special
-                    when 'TORYO' then '勝ち'
-                    when 'ILLEGAL_ACTION' then '反則勝ち'
-                    when 'ILLEGAL_MOVE' then '反則負け'
-                    end
+          result += GAMESET_MAPPING[special]
         else
           turn = @players[(index + 1) % 2]
           result += case special

@@ -116,38 +116,40 @@ module Jkf
         result
       end
 
+      PRESET_MAPPING = {
+        # 平手
+        'HIRATE' => '',
+        # 香落ち
+        'KY' => '11KY',
+        # 右香落ち
+        'KY_R' => '91KY',
+        # 角落ち
+        'KA' => '22KA',
+        # 飛車落ち
+        'HI' => '82HI',
+        # 飛香落ち
+        'HIKY' => '22HI11KY91KY',
+        # 二枚落ち
+        '2' => '82HI22KA',
+        # 三枚落ち
+        '3' => '82HI22KA91KY',
+        # 四枚落ち
+        '4' => '82HI22KA11KY91KY',
+        # 五枚落ち
+        '5' => '82HI22KA81KE11KY91KY',
+        # 左五枚落ち
+        '5_L' => '82HI22KA21KE11KY91KY',
+        # 六枚落ち
+        '6' => '82HI22KA21KE81KE11KY91KY',
+        # 八枚落ち
+        '8' => '82HI22KA31GI71GI21KE81KE11KY91KY',
+        # 十枚落ち
+        '10' => '82HI22KA41KI61KI31GI71GI21KE81KE11KY91KY'
+      }.freeze
+
       # よく知られた初期局面を表す文字列を、CSA形式の局面表現に変換します
       def convert_preset(preset)
-        csa_preset = case preset
-                     when 'HIRATE' # 平手
-                       ''
-                     when 'KY' # 香落ち
-                       '11KY'
-                     when 'KY_R' # 右香落ち
-                       '91KY'
-                     when 'KA' # 角落ち
-                       '22KA'
-                     when 'HI' # 飛車落ち
-                       '82HI'
-                     when 'HIKY' # 飛香落ち
-                       '22HI11KY91KY'
-                     when '2' # 二枚落ち
-                       '82HI22KA'
-                     when '3' # 三枚落ち
-                       '82HI22KA91KY'
-                     when '4' # 四枚落ち
-                       '82HI22KA11KY91KY'
-                     when '5' # 五枚落ち
-                       '82HI22KA81KE11KY91KY'
-                     when '5_L' # 左五枚落ち
-                       '82HI22KA21KE11KY91KY'
-                     when '6' # 六枚落ち
-                       '82HI22KA21KE81KE11KY91KY'
-                     when '8' # 八枚落ち
-                       '82HI22KA31GI71GI21KE81KE11KY91KY'
-                     when '10' # 十枚落ち
-                       '82HI22KA41KI61KI31GI71GI21KE81KE11KY91KY'
-                     end
+        csa_preset = PRESET_MAPPING[preset]
 
         "PI#{csa_preset}"
       end
