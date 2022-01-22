@@ -8,7 +8,7 @@ describe Jkf do
   end
 
   describe '.parse_file(filename, encoding)' do
-    subject { described_class.parse_file(filename) }
+    subject(:parsed_result) { described_class.parse_file(filename) }
 
     context 'when .kif' do
       let(:filename) { fixtures(:kif).first }
@@ -37,12 +37,12 @@ describe Jkf do
     context 'when .csv' do
       let(:filename) { fixtures(:csv).first }
 
-      it { expect { subject }.to raise_error(Jkf::FileTypeError) }
+      it { expect { parsed_result }.to raise_error(Jkf::FileTypeError) }
     end
   end
 
   describe '.parse(str)' do
-    subject { described_class.parse(str) }
+    subject(:parsed_result) { described_class.parse(str) }
 
     context 'with kif str' do
       let(:str) { File.read(fixtures(:kif).first, encoding: 'Shift_JIS').toutf8 }
@@ -71,7 +71,7 @@ describe Jkf do
     context 'with csv str' do
       let(:str) { File.read(fixtures(:csv).first, encoding: 'Shift_JIS').toutf8 }
 
-      it { expect { subject }.to raise_error(Jkf::FileTypeError) }
+      it { expect { parsed_result }.to raise_error(Jkf::FileTypeError) }
     end
   end
 end

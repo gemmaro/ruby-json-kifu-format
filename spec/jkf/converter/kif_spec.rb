@@ -28,7 +28,7 @@ describe Jkf::Converter::Kif do
   end
 
   describe 'handicap' do
-    subject do
+    subject(:kif) do
       <<~KIF
         手合割：十枚落ち
         手数----指手---------消費時間--
@@ -46,7 +46,7 @@ describe Jkf::Converter::Kif do
     end
 
     it 'is convert' do
-      expect(subject).to eq kif_converter.convert(handicap_hash)
+      expect(kif).to eq kif_converter.convert(handicap_hash)
     end
   end
 end
