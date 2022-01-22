@@ -67,7 +67,7 @@ describe Jkf::Parser::Csa do
         } }
     end
 
-    context 'simple' do
+    context 'when simple' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -101,7 +101,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'comment' do
+    context 'with comment' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -133,7 +133,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'special' do
+    context 'with special' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -167,7 +167,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'comma' do
+    context 'with comma' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -201,7 +201,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'time' do
+    context 'with time' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -242,7 +242,7 @@ describe Jkf::Parser::Csa do
     end
 
     describe '開始局面' do
-      context '平手初期局面' do
+      context 'when 平手初期局面' do
         let(:str) do
           <<~END_OF_STRING
             V2.2
@@ -308,7 +308,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context '一括表現' do
+      context 'when 一括表現' do
         let(:str) do
           <<~END_OF_STRING
             V2.2
@@ -382,7 +382,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context '駒別単独表現' do
+      context 'when 駒別単独表現' do
         let(:str) do
           <<~END_OF_STRING
             V2.2
@@ -435,7 +435,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context 'AL' do
+      context 'with AL' do
         let(:str) do
           <<~END_OF_STRING
             V2.2
@@ -484,7 +484,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'header' do
+    context 'with header' do
       let(:str) do
         <<~END_OF_STRING
           V2.2
@@ -562,7 +562,7 @@ describe Jkf::Parser::Csa do
         } }
     end
 
-    context 'simple' do
+    context 'when simple' do
       let(:str) do
         <<~END_OF_STRING
           PI
@@ -595,7 +595,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'comment' do
+    context 'with comment' do
       let(:str) do
         <<~END_OF_STRING
           PI
@@ -626,7 +626,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'special' do
+    context 'with special' do
       let(:str) do
         <<~END_OF_STRING
           PI
@@ -659,7 +659,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'comma' do
+    context 'with comma' do
       let(:str) do
         <<~END_OF_STRING
           PI
@@ -692,7 +692,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'time' do
+    context 'with time' do
       let(:str) do
         <<~END_OF_STRING
           PI
@@ -732,7 +732,7 @@ describe Jkf::Parser::Csa do
     end
 
     describe '開始局面' do
-      context '平手初期局面' do
+      context 'when 平手初期局面' do
         let(:str) do
           <<~END_OF_STRING
             PI82HI22KA91KY81KE21KE11KY
@@ -797,7 +797,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context '一括表現' do
+      context 'when 一括表現' do
         let(:str) do
           <<~END_OF_STRING
             P1 *  * -GI-KI-OU-KI-GI *  *#{' '}
@@ -875,7 +875,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context '駒別単独表現' do
+      context 'when 駒別単独表現' do
         let(:str) do
           <<~END_OF_STRING
             P-11OU21FU22FU23FU24FU25FU26FU27FU28FU29FU
@@ -927,7 +927,7 @@ describe Jkf::Parser::Csa do
         end
       end
 
-      context 'AL' do
+      context 'with AL' do
         let(:str) do
           <<~END_OF_STRING
             V2.2
@@ -976,7 +976,7 @@ describe Jkf::Parser::Csa do
       end
     end
 
-    context 'header' do
+    context 'with header' do
       let(:str) do
         <<~END_OF_STRING
           N+sente

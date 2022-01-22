@@ -37,7 +37,7 @@ describe Jkf::Parser::Kif do
     it_behaves_like 'parse error file', fixture
   end
 
-  context 'simple' do
+  context 'when simple' do
     let(:str) do
       "1 ７六歩(77)\n2 ３四歩(33)\n3 ２二角成(88)\n 4 同　銀(31)\n5 ４五角打\n"
     end
@@ -58,7 +58,7 @@ describe Jkf::Parser::Kif do
     end
   end
 
-  context 'gote' do
+  context 'when gote' do
     let(:str) do
       <<~END_OF_STRING
         手合割：その他
@@ -133,7 +133,7 @@ describe Jkf::Parser::Kif do
     end
   end
 
-  context 'comment' do
+  context 'with comment' do
     let(:str) do
       <<~END_OF_STRING
         *開始時コメント
@@ -160,7 +160,7 @@ describe Jkf::Parser::Kif do
     end
   end
 
-  context 'time' do
+  context 'with time' do
     context 'when nospaces' do
       let(:str) do
         <<~END_OF_STRING
@@ -262,7 +262,7 @@ describe Jkf::Parser::Kif do
     end
   end
 
-  context 'total-time-ms' do
+  context 'with total-time-ms' do
     let(:str) do
       <<~END_OF_STRING
         1 ７六歩(77) (0:01/00:01)
@@ -294,7 +294,7 @@ describe Jkf::Parser::Kif do
     end
   end
 
-  context 'special' do
+  context 'with special' do
     let(:str) do
       "1 ７六歩(77)\n2 ３四歩(33)\n3 ７八銀(79)\n 4 ８八角成(22)\n5 投了\nまで4手で後手の勝ち\n"
     end
@@ -316,7 +316,7 @@ describe Jkf::Parser::Kif do
   end
 
   describe 'header' do
-    context '手合割 平手' do
+    context 'when 手合割 平手' do
       let(:str) do
         "手合割：平手\n1 ７六歩(77)\n2 ３四歩(33)\n3 ２二角成(88)\n 4 同　銀(31)\n5 ４五角打\n"
       end
@@ -340,7 +340,7 @@ describe Jkf::Parser::Kif do
       end
     end
 
-    context '手合割 六枚落ち' do
+    context 'when 手合割 六枚落ち' do
       let(:str) do
         "手合割：六枚落ち\n1 ４二玉(51)\n2 ７六歩(77)\n3 ２二銀(31)\n 4 ６六角(88)\n5 ８二銀(71)\n"
       end
@@ -365,7 +365,7 @@ describe Jkf::Parser::Kif do
   end
 
   describe 'initial' do
-    context 'simple' do
+    context 'when simple' do
       let(:str) do
         <<~END_OF_STRING
           手合割：その他　
@@ -435,7 +435,7 @@ describe Jkf::Parser::Kif do
       end
     end
 
-    context 'Kifu for iPhone dialect' do
+    context 'with Kifu for iPhone dialect' do
       let(:str) do
         <<~END_OF_STRING
           手合割：平手
@@ -507,7 +507,7 @@ describe Jkf::Parser::Kif do
   end
 
   describe 'fork' do
-    context 'normal' do
+    context 'when normal' do
       let(:str) do
         <<~END_OF_STRING
           手合割：平手
@@ -552,7 +552,7 @@ describe Jkf::Parser::Kif do
       end
     end
 
-    context 'gote' do
+    context 'when gote' do
       let(:str) do
         <<~END_OF_STRING
           手合割：その他
@@ -641,7 +641,7 @@ describe Jkf::Parser::Kif do
   end
 
   describe 'split' do
-    context 'normal' do
+    context 'when normal' do
       let(:str) do
         <<~END_OF_STRING
           手合割：平手
@@ -674,7 +674,7 @@ describe Jkf::Parser::Kif do
       end
     end
 
-    context 'after initial comment' do
+    context 'with after initial comment' do
       let(:str) do
         <<~END_OF_STRING
           手合割：平手
@@ -709,7 +709,7 @@ describe Jkf::Parser::Kif do
   end
 
   describe 'unsupported annotations' do
-    context '盤面回転' do
+    context 'when 盤面回転' do
       let(:str) do
         "盤面回転\n1 ７六歩(77)\n2 ３四歩(33)\n3 ２二角成(88)\n 4 同　銀(31)\n5 ４五角打\n"
       end
@@ -730,7 +730,7 @@ describe Jkf::Parser::Kif do
       end
     end
 
-    context '&読み込み時表示' do
+    context 'with &読み込み時表示' do
       let(:str) do
         "1 ７六歩(77)\n2 ３四歩(33)\n&読み込み時表示\n3 ２二角成(88)\n 4 同　銀(31)\n5 ４五角打\n"
       end

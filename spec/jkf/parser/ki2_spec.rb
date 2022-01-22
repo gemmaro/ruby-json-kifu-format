@@ -37,7 +37,7 @@ describe Jkf::Parser::Ki2 do
     it_behaves_like 'parse error file', fixture
   end
 
-  context 'simple' do
+  context 'when simple' do
     let(:str) do
       '▲７六歩 △３四歩 ▲２二角成 △同　銀 ▲４五角'
     end
@@ -57,7 +57,7 @@ describe Jkf::Parser::Ki2 do
     end
   end
 
-  context 'special' do
+  context 'with special' do
     let(:str) do
       "▲７六歩 △３四歩 ▲７八銀 △８八角成\nまで4手で後手の勝ち\n"
     end
@@ -78,7 +78,7 @@ describe Jkf::Parser::Ki2 do
   end
 
   describe 'header' do
-    context '手合割 平手' do
+    context 'when 手合割 平手' do
       let(:str) do
         "手合割：平手\n▲７六歩 △３四歩 ▲２二角成 △同　銀 ▲４五角"
       end
@@ -101,7 +101,7 @@ describe Jkf::Parser::Ki2 do
       end
     end
 
-    context '手合割 六枚落ち' do
+    context 'when 手合割 六枚落ち' do
       let(:str) do
         "手合割：六枚落ち\n△４二玉 ▲７六歩 △２二銀 ▲６六角 △８二銀"
       end
@@ -126,7 +126,7 @@ describe Jkf::Parser::Ki2 do
   end
 
   describe 'comments' do
-    context 'first comment' do
+    context 'with first comment' do
       let(:str) do
         "*最初：コメント\n▲７六歩 △３四歩 ▲２二角成 △同　銀 ▲４五角"
       end
@@ -148,7 +148,7 @@ describe Jkf::Parser::Ki2 do
   end
 
   describe 'initial' do
-    context 'simple' do
+    context 'when simple' do
       let(:str) do
         <<~END_OF_STRING
           手合割：その他　
@@ -217,7 +217,7 @@ describe Jkf::Parser::Ki2 do
   end
 
   describe 'fork' do
-    context 'normal' do
+    context 'when normal' do
       let(:str) do
         <<~END_OF_STRING
           手合割：平手
