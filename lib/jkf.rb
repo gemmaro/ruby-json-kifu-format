@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'kconv'
-require 'jkf/version'
-require 'jkf/parser'
-require 'jkf/converter'
+require_relative 'jkf/version'
+require_relative 'jkf/parser'
+require_relative 'jkf/converter'
 
 # JSON Kifu Format
 module Jkf
